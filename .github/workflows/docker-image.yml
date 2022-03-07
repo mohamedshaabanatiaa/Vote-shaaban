@@ -18,7 +18,7 @@ jobs:
       run: docker build . --file Dockerfile --tag latest
     - name: docker login
       run: docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
-    - run: docker push ${{secrets.DOCKER_USER}}/shaaban-vote
+    - run: docker push docker.io/docker/shaaban-vote
     - name: Docker Login
       uses: docker/login-action@v1.14.1
       with:
