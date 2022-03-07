@@ -5,7 +5,8 @@ FROM python:3.9-slim
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     curl \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install statsd
 
 # Set the application directory
 WORKDIR /app
