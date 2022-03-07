@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag latest
+      run: docker build . --file Dockerfile --tag docker/shaaban-vote
     - name: docker login
       run: docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_PASSWORD}}
     - run: docker push docker.io/docker/shaaban-vote
