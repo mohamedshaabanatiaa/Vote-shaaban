@@ -6,6 +6,15 @@ import random
 import json
 import logging
 
+import statsd
+c = statsd.StatsClient('localhost', 8125)
+c.incr('foo')  # Increment the 'foo' counter.
+c.timing('stats.timed', 320)  # Record a 320ms 'stats.timed'.
+
+import statsd
+c = statsd.StatsClient('localhost', 8125, prefix='foo')
+c.incr('bar')  # Will be 'foo.bar' in statsd/graphite.
+
 option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
 hostname = socket.gethostname()
